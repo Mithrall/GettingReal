@@ -75,6 +75,7 @@ namespace SourceCodeGettingReal {
             customers.Add(customer);
             return customer;
         }
+
         public bool IsPhoneNumber(string phoneInput) {
             int phone;
             bool canConvert = Int32.TryParse(phoneInput, out phone);
