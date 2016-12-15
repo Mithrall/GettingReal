@@ -94,7 +94,7 @@ namespace SourceCodeGettingReal {
                 Name = Console.ReadLine();
                 Console.Clear();
                 Console.WriteLine("Fornavn på bruger, må ikke indholde tal eller være blankt");
-            } while (Name == "" || Name.Any(Char.IsDigit) || Name.Contains(' '));
+            } while (Name == "" || Name.Any(char.IsDigit) || Name.Contains(' '));
             return Name;
         }
 
@@ -107,7 +107,7 @@ namespace SourceCodeGettingReal {
                 Console.Clear();
                 Console.WriteLine("Efternavn på bruger, må ikke indholde tal eller være blankt");
 
-            } while (LastName == "" || LastName.Any(Char.IsDigit) || LastName.Contains(' '));
+            } while (LastName == "" || LastName.Any(char.IsDigit) || LastName.Contains(' '));
             return LastName;
         }
 
