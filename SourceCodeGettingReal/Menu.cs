@@ -19,21 +19,24 @@ namespace SourceCodeGettingReal {
         }
 
         public void MainMenu() {
+            MainMenuText();
             ConsoleKeyInfo cki;
             do {
-                MainMenuText();
                 cki = Console.ReadKey(false);
                 switch (cki.KeyChar.ToString()) {
                     case "1":
                         UserMenu();
+                        MainMenu();
                         break;
 
                     case "2":
                         Console.Clear();
                         HairdresserMenu();
+                        MainMenu();
                         break;
 
                     default:
+                        MainMenuText();
                         WrongInput();
                         break;
                 }
@@ -47,12 +50,12 @@ namespace SourceCodeGettingReal {
             ConsoleKeyInfo cki;
             Customer currentCustomer;
             currentCustomer = tempcurrentcustomer;
-            int phone;
-
-            while (currentCustomer == null) {
-                phone = phoneInput();
-                currentCustomer = userFunctions.DoesUserExist(phone);
+            if (currentCustomer == null) {
+                currentCustomer = userFunctions.DoesUserExist();
                 Console.Clear();
+            }
+            if (currentCustomer == null) {
+                MainMenu();
             }
 
             UserMenuText(currentCustomer);
@@ -119,21 +122,6 @@ namespace SourceCodeGettingReal {
                     HairdresserMenu();
                     break;
             }        
-        }
-        public int phoneInput() {
-            string phoneString;
-            bool IsPhoneNumber;
-            do {
-                Console.Clear();
-                Console.WriteLine("Intast telefonnummer: ");
-                phoneString = Console.ReadLine();
-                IsPhoneNumber = userFunctions.IsPhoneNumber(phoneString);
-                if (phoneString == "exit") {
-                    Console.Clear();
-                    MainMenu();
-                }
-            } while (IsPhoneNumber == false);
-            return Int32.Parse(phoneString);
         }
 
         public void ShowNextCustomer() {
