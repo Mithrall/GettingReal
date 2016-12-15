@@ -93,8 +93,8 @@ namespace SourceCodeGettingReal {
 
         public void HairdresserMenu() {
             ConsoleKeyInfo cki;
-            cki = Console.ReadKey(false);
             HairdresserMenuText();
+            cki = Console.ReadKey(false);
             switch (cki.KeyChar.ToString()) {
                 case "1":
                     Console.Clear();
